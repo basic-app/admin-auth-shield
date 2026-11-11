@@ -1,0 +1,9 @@
+{
+    "name": "basic-app/admin-auth-shield",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "BasicApp\\AdminAuthShield\\": "src/"
+        }
+    }
+}
