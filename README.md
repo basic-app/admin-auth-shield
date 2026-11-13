@@ -57,3 +57,18 @@ if (!admin_auth_shield_routes($routes))
      }
 ```
 
+6. Add to ".env"
+
+```
+Security.csrfProtection="session"
+```
+
+7. Add to "Config\Autoload"
+```
+public $helpers = [
+    /* other helpers here... */
+    'auth', 
+    'setting'];
+```
+
+

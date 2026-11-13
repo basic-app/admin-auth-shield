@@ -2,7 +2,7 @@
 
 use CodeIgniter\Router\RouteCollection;
 use CodeIgniter\Config\Factories;
-use Config\AdminAuthRoutes;
+use BasicApp\AdminAuthShield\Config\AdminAuthRoutes;
 
 if (!function_exists('admin_auth_shield_routes'))
 {

@@ -11,12 +11,12 @@ class AdminAuth implements AdminInterface
 {
     public function getAdminName() : ?string
     {
-        return null;
+        return auth()->user()->username;
     }
 
     public function getAdminEmail() : ?string
-    {
-        return null;
+    {    
+        return auth()->user()->email;
     }
 
     public function getAdminAvatarImageUrl(?string $default = null) : ?string

@@ -11,7 +11,7 @@ declare(strict_types=1);
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace BasicApp\AdminAuthSchield\Config;
+namespace BasicApp\AdminAuthShield\Config;
 
 use CodeIgniter\Shield\Config\Auth as ShieldAuth;
 use CodeIgniter\Shield\Authentication\Actions\ActionInterface;
@@ -46,17 +46,17 @@ class AdminAuth extends ShieldAuth
      * --------------------------------------------------------------------
      */
     public array $views = [
-        'login'                       => 'admin/auth/login',
-        'register'                    => 'admin/auth/register',
-        'layout'                      => 'admin/auth/layout',
-        'action_email_2fa'            => 'admin/auth/email_2fa_show',
-        'action_email_2fa_verify'     => 'admin/auth/email_2fa_verify',
-        'action_email_2fa_email'      => 'admin/auth/email/email_2fa_email',
-        'action_email_activate_show'  => 'admin/auth/email_activate_show',
-        'action_email_activate_email' => 'admin/auth/email/email_activate_email',
-        'magic-link-login'            => 'admin/auth/magic_link_form',
-        'magic-link-message'          => 'admin/auth/magic_link_message',
-        'magic-link-email'            => 'admin/auth/email/magic_link_email',
+        'login'                       => 'BasicApp\AdminAuthShield\login',
+        'register'                    => 'BasicApp\AdminAuthShield\register',
+        'layout'                      => 'BasicApp\AdminAuth\layout',
+        'action_email_2fa'            => 'BasicApp\AdminAuthShield\email_2fa_show',
+        'action_email_2fa_verify'     => 'BasicApp\AdminAuthShield\email_2fa_verify',
+        'action_email_2fa_email'      => 'BasicApp\AdminAuthShield\Email/email_2fa_email',
+        'action_email_activate_show'  => 'BasicApp\AdminAuthShield\email_activate_show',
+        'action_email_activate_email' => 'BasicApp\AdminAuthShield\Email/email_activate_email',
+        'magic-link-login'            => 'BasicApp\AdminAuthShield\magic_link_form',
+        'magic-link-message'          => 'BasicApp\AdminAuthShield\magic_link_message',
+        'magic-link-email'            => 'BasicApp\AdminAuthShield\email/magic_link_email'
     ];
 
     /**
@@ -514,8 +514,8 @@ class AdminAuth extends ShieldAuth
     {
         return match (true) {
             str_starts_with($url, 'http://') || str_starts_with($url, 'https://') => $url,
-            route_to($url) !== false                                              => rtrim(url_to($url), '/ '),
-            default                                                               => rtrim(site_url($url), '/ '),
+            route_to($url) !== false => rtrim(url_to($url), '/ '),
+            default => rtrim(site_url($url), '/ '),
         };
     }
 }

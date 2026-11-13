@@ -11,7 +11,7 @@ declare(strict_types=1);
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace BasicApp\AdminAuthSchield\Config;
+namespace BasicApp\AdminAuthShield\Config;
 
 use CodeIgniter\Config\BaseConfig;
 
@@ -64,8 +64,16 @@ class AdminAuthRoutes extends BaseConfig
             ],
         ],
         'logout' => [
+            /*
             [
                 'get',
+                'admin/logout',
+                'LoginController::logoutAction',
+                'logout', // Route name
+            ],
+            */
+            [
+                'post',
                 'admin/logout',
                 'LoginController::logoutAction',
                 'logout', // Route name
