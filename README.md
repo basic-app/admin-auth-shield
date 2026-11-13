@@ -68,7 +68,19 @@ Security.csrfProtection="session"
 public $helpers = [
     /* other helpers here... */
     'auth', 
-    'setting'];
+    'setting'
+];
+```
+
+8. Run
+```
+php spark db:seed "BasicApp\AdminAuthShield\Database\Seeds\DemoSeeder"
+```
+
+Access backend by opening `http://localhost:8080/index.php/admin` in a browser.
+```
+login: admin@example.org
+password: admin
 ```
 
 
