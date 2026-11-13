@@ -3,7 +3,10 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "BasicApp\\AdminAuthShield\\": "src/"
+            "BasicApp\\AdminAuthShield\\": "src"
         }
+    },
+    "require": {
+        "codeigniter4/shield": "*"
     }
 }
