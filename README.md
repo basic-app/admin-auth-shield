@@ -30,40 +30,21 @@ if (!admin_auth_shield_routes($routes))
     public array $filters = [
         /* other filters here... */
         'adminsession' => [
-            'before' => [
-                'admin',
-                'admin/*'
-            ]
+            'before' => ['admin', 'admin/*']
         ],
         'admingroup:admin' => [
-            'before' => [
-                'admin',
-                'admin/*'
-            ]
+            'before' => ['admin', 'admin/*']
         ]
     ];
 ```
 
-5. Add to "Config/Services.php"
+5. Add to ".env"
 
 ```
-     public static function adminAuth($getShared = true)
-     {
-         if ($getShared) {
-             return static::getSharedInstance(__FUNCTION__);
-         }
-         
-         return new \BasicApp\AdminAuthShield\Services\AdminAuth;
-     }
+AdminAuth.credentialClass="BasicApp\AdminAuthShield\Services\AdminAuth"
 ```
 
-6. Add to ".env"
-
-```
-Security.csrfProtection="session"
-```
-
-7. Add to "Config\Autoload"
+6. Add to "Config\Autoload"
 ```
 public $helpers = [
     /* other helpers here... */
@@ -72,8 +53,17 @@ public $helpers = [
 ];
 ```
 
+7. Add to ".env"
+
+```
+Security.csrfProtection="session"
+```
+
+In some cases, this step can be skipped.
+
 8. Run
 ```
+php spark migrate -all
 php spark db:seed "BasicApp\AdminAuthShield\Database\Seeds\DemoSeeder"
 ```
 
@@ -83,4 +73,4 @@ login: admin@example.org
 password: admin
 ```
 
-
+You need to restart the Spark server so the new settings take effect.

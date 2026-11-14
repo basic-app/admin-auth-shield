@@ -15,7 +15,7 @@ namespace BasicApp\AdminAuthShield\Config;
 
 use CodeIgniter\Config\BaseConfig;
 
-class AdminAuthRoutes extends BaseConfig
+class AdminAuthShieldRoutes extends BaseConfig
 {
     public array $routes = [
         'register' => [

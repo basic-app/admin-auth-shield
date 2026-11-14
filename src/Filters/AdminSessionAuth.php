@@ -1,11 +1,12 @@
 <?php
+declare(strict_types=1);
 
 namespace BasicApp\AdminAuthShield\Filters;
 
 use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
-use BasicApp\AdminAuthShield\Config\AdminAuth as AdminAuthConfig;
+use BasicApp\AdminAuthShield\Config\AdminAuthShield;
 use CodeIgniter\Config\Factories;
 use CodeIgniter\Shield\Filters\SessionAuth;
 
@@ -30,7 +31,7 @@ class AdminSessionAuth extends SessionAuth implements FilterInterface
     {
         $instances = Factories::getComponentInstances('config');
         
-        $instances['aliases']['Auth'] = AdminAuthConfig::class;
+        $instances['aliases']['Auth'] = AdminAuthShield::class;
         
         Factories::setComponentInstances('config', $instances);  
 

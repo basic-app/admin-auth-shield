@@ -1,8 +1,9 @@
 <?php
+declare(strict_types=1);
 
 use CodeIgniter\Router\RouteCollection;
 use CodeIgniter\Config\Factories;
-use BasicApp\AdminAuthShield\Config\AdminAuthRoutes;
+use BasicApp\AdminAuthShield\Config\AdminAuthShieldRoutes;
 
 if (!function_exists('admin_auth_shield_routes'))
 {
@@ -12,7 +13,7 @@ if (!function_exists('admin_auth_shield_routes'))
         {
             $instances = Factories::getComponentInstances('config');
 
-            $instances['aliases']['AuthRoutes'] = AdminAuthRoutes::class;
+            $instances['aliases']['AuthRoutes'] = AdminAuthShieldRoutes::class;
             
             Factories::setComponentInstances('config', $instances);
 

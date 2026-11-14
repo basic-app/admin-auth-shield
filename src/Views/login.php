@@ -1,6 +1,10 @@
 <?php
+declare(strict_types=1);
+
 helper(['form']);
+
 $this->setVar('title', lang('Admin.Control Panel'));
+
 $this->setVar('description', lang('Admin.Sign in to continue.'));
 ?>
 <?= $this->extend(config('Auth')->views['layout']);?>
@@ -39,7 +43,7 @@ $this->setVar('description', lang('Admin.Sign in to continue.'));
                 'attributes' => [
                     'value' => 1,
                     'name' => 'remember',
-                    'checked' => set_checkbox('remember', 1, true) ? true : false
+                    'checked' => set_checkbox('remember', '1', true) ? true : false
                 ]
             ]);?>
         <?php endif;?>
