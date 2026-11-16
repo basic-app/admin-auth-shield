@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace BasicApp\AdminAuthShield\Filters;
@@ -27,8 +28,7 @@ class AdminGroupFilter extends GroupFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (array_search($request->getPath(), ['admin/login', 'admin/logout']) !== false)
-        {
+        if (array_search($request->getPath(), ['admin/login', 'admin/logout']) !== false) {
             return;
         }
 
@@ -47,7 +47,7 @@ class AdminGroupFilter extends GroupFilter implements FilterInterface
      *
      * @return ResponseInterface|void
      */
-    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null) : void
+    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null): void
     {
         parent::after($request, $response, $arguments);
     }

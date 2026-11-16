@@ -1,9 +1,11 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @author Basic App Dev Team
  * @license MIT
  */
+
 namespace BasicApp\AdminAuthShield\Database\Seeds;
 
 use BasicApp\Core\Seeder;
@@ -14,7 +16,7 @@ class DemoSeeder extends Seeder
     public function run()
     {
         $users = auth()->getProvider();
-        
+
         $user = new User([
             'username' => 'admin',
             'email'    => 'admin@example.org',
@@ -26,9 +28,9 @@ class DemoSeeder extends Seeder
         $user = $users->findById($users->getInsertID());
 
         $users->addToDefaultGroup($user);
-        
+
         $user->addGroup('admin');
-        
+
         $user->activate();
     }
 }

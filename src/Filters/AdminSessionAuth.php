@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace BasicApp\AdminAuthShield\Filters;
@@ -30,13 +31,12 @@ class AdminSessionAuth extends SessionAuth implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         $instances = Factories::getComponentInstances('config');
-        
-        $instances['aliases']['Auth'] = AdminAuthShield::class;
-        
-        Factories::setComponentInstances('config', $instances);  
 
-        if ($request->getPath() == 'admin/login')
-        {
+        $instances['aliases']['Auth'] = AdminAuthShield::class;
+
+        Factories::setComponentInstances('config', $instances);
+
+        if ($request->getPath() == 'admin/login') {
             return;
         }
 
@@ -55,7 +55,7 @@ class AdminSessionAuth extends SessionAuth implements FilterInterface
      *
      * @return ResponseInterface|void
      */
-    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null) : void
+    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null): void
     {
         parent::after($request, $response, $arguments);
     }

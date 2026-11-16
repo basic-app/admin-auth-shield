@@ -1,9 +1,11 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @author Basic App Dev Team
  * @license MIT
  */
+
 namespace BasicApp\AdminAuthShield\Services;
 
 use BasicApp\AdminAuth\Interfaces\AdminInterface;
@@ -24,7 +26,7 @@ class AdminAuth implements AdminInterface
     }
 
     public function getAdminEmail(): ?string
-    {    
+    {
         return auth()->user()->email;
     }
 
@@ -32,13 +34,11 @@ class AdminAuth implements AdminInterface
     {
         $user = auth()->user();
 
-        if (method_exists($user, 'getAvatarImageUrl'))
-        {
+        if (method_exists($user, 'getAvatarImageUrl')) {
             return $user->getAvatarImageUrl();
         }
 
-        if ($user->email && $user->email != 'admin@example.org')
-        {
+        if ($user->email && $user->email != 'admin@example.org') {
             // Trim leading and trailing whitespace from
             // an email address and force all characters
             // to lower case
@@ -51,7 +51,7 @@ class AdminAuth implements AdminInterface
             return 'https://gravatar.com/avatar/' . $hash;
         }
 
-        return $default ? base_url($default): null;
+        return $default ? base_url($default) : null;
     }
 
     public function getAdminLogoutUrl(): ?string
